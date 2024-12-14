@@ -1,0 +1,27 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+
+# Ignorar arquivos de estado do Terraform
+terraform.tfstate
+terraform.tfstate.backup
+
+# Ignorar arquivos de estado armazenados em subdiretórios
+*.tfstate
+*.tfstate.backup
+
+# Ignorar configurações de lock do Terraform
+.terraform/
+
+# Ignorar logs de crash do Terraform
+crash.log
+
+# Ignorar arquivos de override do Terraform
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignorar planos de execução
+terraform.plan
+
