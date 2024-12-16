@@ -11,6 +11,8 @@ resource "aws_subnet" "aws-project-main_subnet" {
   vpc_id            = aws_vpc.aws-project-main_vpc.id
   cidr_block        = "10.0.1.0/24"
   availability_zone = "us-east-1a" # Modifique conforme sua região
+  map_public_ip_on_launch = true
+
   tags = {
     Name = "main-subnet"
   }
@@ -52,7 +54,7 @@ resource "aws_security_group" "aws-project-ec2_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["127.0.0.1/32"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
   egress {
     from_port   = 0
