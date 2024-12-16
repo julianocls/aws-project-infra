@@ -1,6 +1,7 @@
+# Configura instancia EC2
 resource "aws_instance" "aws-project-ec2" {
-  ami = "ami-0166fe664262f664c"
-  instance_type = "t2.micro"
+  ami = var.ami
+  instance_type = var.instance_type
   subnet_id     = aws_subnet.aws-project-main_subnet.id
   key_name      = aws_key_pair.ec2_key_pair.key_name
 
