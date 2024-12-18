@@ -27,7 +27,12 @@ variable "ami" {
 }
 
 # Password Postgres
-variable "db_password_postgres" {
-  type      = string
-  sensitive = true
+# variable "db_password_postgres" {
+#   type      = string
+#   sensitive = true
+# }
+
+# Nome da app
+variable "app_name" {
+  default = "aws-project"
 }

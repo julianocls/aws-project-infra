@@ -12,7 +12,7 @@ resource "aws_key_pair" "ec2_key_pair" {
 
 # Salva a chave privada no diretório ~/.ssh
 resource "local_file" "private_key" {
-  filename = "${path.module}/ec2-key.pem"
+  filename = "${path.module}/.terraform/ec2-key.pem"
   content  = tls_private_key.ec2_key.private_key_pem
   #sensitive = true
 }
@@ -22,7 +22,7 @@ resource "null_resource" "move_private_key" {
   depends_on = [local_file.private_key]  # Garante que o arquivo seja gerado antes de mover
 
   provisioner "local-exec" {
-    command = "mv ${path.module}/ec2-key.pem ~/.ssh/ec2-key.pem"
+    command = "mv ${path.module}/.terraform/ec2-key.pem ~/.ssh/ec2-key.pem"
   }
 }
 
