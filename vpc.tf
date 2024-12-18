@@ -54,7 +54,7 @@ resource "aws_route_table_association" "main" {
   route_table_id = aws_route_table.main.id
 }
 
-# Criar Grupos de Segurança
+# Criar Grupos de Segurança EC2
 resource "aws_security_group" "ec2" {
   vpc_id = aws_vpc.main.id
 
@@ -84,6 +84,7 @@ resource "aws_security_group" "ec2" {
   }
 }
 
+# Criar Grupos de Segurança Postgres RDS
 resource "aws_security_group" "postgres" {
   vpc_id      = aws_vpc.main.id
   name_prefix = "allow-postgres"
