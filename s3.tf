@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "terraform-bucket-jcls" {
+resource "aws_s3_bucket" "aws-project_terraform_bucket" {
   bucket = "terraform-bucket-jcls"
 
   tags = {
@@ -7,8 +7,8 @@ resource "aws_s3_bucket" "terraform-bucket-jcls" {
 }
 
 # Bloqueio de acesso público ao bucket
-resource "aws_s3_bucket_public_access_block" "terraform-bucket-jcls-access-block" {
-  bucket = aws_s3_bucket.terraform-bucket-jcls.id
+resource "aws_s3_bucket_public_access_block" "aws-project_s3_access_block" {
+  bucket = aws_s3_bucket.aws-project_terraform_bucket.id
 
   block_public_acls       = true
   block_public_policy     = true
@@ -17,8 +17,8 @@ resource "aws_s3_bucket_public_access_block" "terraform-bucket-jcls-access-block
 }
 
 # Configuração de ciclo de vida do bucket
-resource "aws_s3_bucket_lifecycle_configuration" "terraform-bucket-jcls-lifecycle" {
-  bucket = aws_s3_bucket.terraform-bucket-jcls.id
+resource "aws_s3_bucket_lifecycle_configuration" "aws-project_s3_lifecycle" {
+  bucket = aws_s3_bucket.aws-project_terraform_bucket.id
 
   rule {
     id     = "expire-objects-1-day"
