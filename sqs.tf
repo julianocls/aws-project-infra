@@ -4,6 +4,7 @@ resource "aws_sqs_queue" "note_queue" {
   message_retention_seconds = 345600   # 4 dias
   delay_seconds             = 0
   visibility_timeout_seconds = 30
+  fifo_queue                = false # Fila padrão para maior taxa de performance. O controle de duplicidade deve ser feito na app.
   redrive_policy            = jsonencode({
     deadLetterTargetArn = aws_sqs_queue.note_queue_dlq.arn
     maxReceiveCount     = 5
