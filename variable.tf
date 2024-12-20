@@ -22,8 +22,8 @@ variable "instance_type" {
 # AMI instancia EC2
 variable "ami" {
   description = "AMI da Instância EC2"
-  type = string
-  default = "ami-0166fe664262f664c"
+  type        = string
+  default     = "ami-0166fe664262f664c"
 }
 
 # Password Postgres

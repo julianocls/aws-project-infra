@@ -19,7 +19,7 @@ resource "local_file" "private_key" {
 
 # Usa um provisioner local-exec para mover o arquivo para ~/.ssh/
 resource "null_resource" "move_private_key" {
-  depends_on = [local_file.private_key]  # Garante que o arquivo seja gerado antes de mover
+  depends_on = [local_file.private_key] # Garante que o arquivo seja gerado antes de mover
 
   provisioner "local-exec" {
     command = "mv ${path.module}/.terraform/ec2-key.pem ~/.ssh/ec2-key.pem"
